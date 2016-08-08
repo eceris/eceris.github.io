@@ -1,22 +1,22 @@
 # The main config file for your Jekyll template
 
 # Site settings
-title: Jackal               # used for the html title of every page
+title: eceris               # used for the html title of every page
 desc: >
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 
-url: http://jackal.com      # put your website hosting url here
+url: http://eceris.com      # put your website hosting url here
 baseurl: ''                 # the subpath of your site, e.g. /blog
 permalink: /:year/:title/   # how should we display posts url
 
 # Meta settings
-email: jackal@gmail.com
-author: The Jackal
-twitter_username: clenemt
-github_username: clenemt
-github_source: jackal
+email: eceris@gmail.com
+author: eceris
+twitter_username: eceris
+github_username: eceris
+github_source: eceris.github.io
 
 # Put your ga tracking code below
 google_analytics: 'UA-XXXXXXXX-X'
@@ -31,16 +31,16 @@ paginate_path: "/articles/page:num/"  # link scheme for articles, should be letf
 navigation:
   - title: Articles
     url: /articles/
-    desc: Stuffs I write about
+    desc: 게시물들
   - title: Projects
     url: /projects/
-    desc: Stuffs I like to do
+    desc: 내가 하고자 하는 것들
   - title: Work
     url: /work/
-    desc: Stuffs I hate to do
+    desc: 업무
   - title: About
     url: /about/
-    desc: Learn about me
+    desc: About me
 
 # Used by Jekyll to recognize what is a post and what is a page
 defaults:
