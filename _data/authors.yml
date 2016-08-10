@@ -19,13 +19,12 @@ default:                                                      # Fallback if noth
   pinterest:                                                  # OPTIONAL: used in the about page
   dribble:                                                    # OPTIONAL: used in the about page
   behance:                                                    # OPTIONAL: used in the about page
-# jwillmer:
-#   initial:      jwillmer
-#   name:         "Jens Willmer"        
-#   cover:        /assets/mountain-alternative-cover.jpg  
-#   picture:      /assets/jwillmer.jpg  
-#   bio:          All about technology 
-#   location:     Germany 
-#   website:      "http://jwillmer.de/about" 
-#   twitter:      jenswillmer
-#   github:       jwillmer
+eceris:
+  initial:      eceris
+  name:         "Sunghyun Park"        
+  cover:        /assets/mountain-alternative-cover.jpg  
+  picture:      /assets/eceris.jpg  
+  bio:          All about technology 
+  location:     Korea 
+  twitter:      eceris
+  github:       eceris
