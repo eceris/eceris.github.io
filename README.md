@@ -1,23 +1,27 @@
-# Codinfox-Lanyon
+# Nangka - theme for jekyll
+Just simple theme for your jekyll blog, based on default Jekyll theme.
 
-This is a jekyll template based on [Lanyon](https://github.com/poole/lanyon). See a live demo [here](http://codinfox.github.io).
+### Feature
 
-**If you like this project, PLEASE give it a star.**
+- [x] **Google Analytics**
+- [x] **Jekyll Search on Archive Page**
+- [x] **Pagination**
+- [x] **404 Error Page**
+- [x] **SEO** Gems: *[jekyll-sitemap](https://github.com/jekyll/jekyll-sitemap), [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag), [jekyll-feed](https://github.com/jekyll/jekyll-feed)*
+- [x] **Disqus Comments**
+- [x] **Ads**
+- [ ] **Share Button**
 
-Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+### [View Demo](http://rmsubekti.github.io/nangka)
 
-All the configurations are inside either `_config.yml` or `_config.scss`. The options are fairly straightforward. 
+### Run this theme on your local machine
+To serve this jekyll theme make sure your computer meets the [following requirements](https://jekyllrb.com/docs/installation/#requirements), and then run this command.
+```
+git clone git@github.com:rmsubekti/nangka.git
+cd nangka
+bundle install
+bundle exec jekyll s
+```
+You can change the site configuration in the [_config.yml](https://github.com/rmsubekti/nangka/blob/gh-pages/_config.yml) file
 
-The theme supports: 
-
-1. Theme colors: you can choose your favorite theme color
-2. Changable sidebar locations
-3. Integration of FontAwesome, MathJax, Disqus and Google Analytics
-4. and numerous improvements over original Lanyon
-
-
-## License
-
-Open sourced under the [MIT license](LICENSE.md).
-
-<3
+Feel free to fork, change, modify and re-use it.
