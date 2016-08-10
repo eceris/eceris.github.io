@@ -1,27 +1,10 @@
-# Nangka - theme for jekyll
-Just simple theme for your jekyll blog, based on default Jekyll theme.
+# jekyllDecent
+[![Build Status](https://travis-ci.org/jwillmer/jekyllDecent.svg?branch=gh-pages)](https://travis-ci.org/jwillmer/jekyllDecent) 
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](#license)
+[![Release v1.1.5](https://img.shields.io/badge/release-v1.1.5-blue.svg)](https://github.com/jwillmer/jekyllDecent/releases/tag/1.1.5)
 
-### Feature
+This is a blog template for a static site generator named [Jekyll](https://jekyllrb.com/docs/home/) based on a [Ghost](https://ghost.org) template named [Decent](https://github.com/serenader2014/decent). 
 
-- [x] **Google Analytics**
-- [x] **Jekyll Search on Archive Page**
-- [x] **Pagination**
-- [x] **404 Error Page**
-- [x] **SEO** Gems: *[jekyll-sitemap](https://github.com/jekyll/jekyll-sitemap), [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag), [jekyll-feed](https://github.com/jekyll/jekyll-feed)*
-- [x] **Disqus Comments**
-- [x] **Ads**
-- [ ] **Share Button**
+Installation instructions, features, previews and more can be found in the **[GitHub generated blog](http://jwillmer.github.io/jekyllDecent)**. This blog is automatically generated out of the source code in the `gh-pages` branch. If you like to see the theme in production have a look at [jwillmer.de](http://jwillmer.de).
 
-### [View Demo](http://rmsubekti.github.io/nangka)
-
-### Run this theme on your local machine
-To serve this jekyll theme make sure your computer meets the [following requirements](https://jekyllrb.com/docs/installation/#requirements), and then run this command.
-```
-git clone git@github.com:rmsubekti/nangka.git
-cd nangka
-bundle install
-bundle exec jekyll s
-```
-You can change the site configuration in the [_config.yml](https://github.com/rmsubekti/nangka/blob/gh-pages/_config.yml) file
-
-Feel free to fork, change, modify and re-use it.
+[![](./media/img/2016-06-08-Readme-front-page-previewe.jpg)](http://jwillmer.github.io/jekyllDecent)

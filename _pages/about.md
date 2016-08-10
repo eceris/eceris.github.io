@@ -1,15 +1,31 @@
 ---
-layout: page
-title: About
-permalink: /about
+layout:    about
+permalink: "/about/"
+author:    jwillmer
+keywords:  about person demo example
+title:     About Jens Willmer
+menutitle: About
+weight:    90
+excerpt:   This page contains the curriculum vitae (CV) of the author.
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+## Profile
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
+Integer sit amet libero non sapien sagittis dapibus. Phasellus gravida quam ac nisl finibus dictum. Pellentesque vel orci et nisi pretium tincidunt nec a diam. Vivamus et leo eu lorem congue pellentesque id sed tortor. Nulla et nibh neque. Sed ut fermentum lectus, id rhoncus erat.
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+---
+
+## Skills
+
+- Praesent ac augue imperdiet, interdum purus id, sollicitudin sem.
+- Sed pellentesque urna a magna suscipit volutpat.
+- Donec ultricies lectus non augue dictum hendrerit ac ac lorem.
+- Integer eget dui eu purus luctus posuere in non metus.
+- Nam ac felis eget tortor blandit gravida non et diam.
+
+---
+
+## Education
+
+2009 - 2012
+: Mauris vitae velit vel leo suscipit tempus vel vel elit.
