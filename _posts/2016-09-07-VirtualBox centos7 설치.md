@@ -12,8 +12,8 @@ author:            eceris
 jekyll 을 docker로 설치하기 위해 centos7.0 을 VirtualBox에 설치한다.
 
 크게는 아래와 같은 단계로 진행한다.
+
 ```bash
----
 1. VM 생성
 
 2. 네트워크 설정
@@ -23,7 +23,6 @@ jekyll 을 docker로 설치하기 위해 centos7.0 을 VirtualBox에 설치한�
 4. CentOS 7 설치
 
 5. 네트워크 설정 및 네트워크 서비스 재시작
----
 ```  
 
 #### **VM 생성**
