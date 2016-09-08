@@ -41,7 +41,6 @@ author:            eceris
 	echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"$ORACLE_HOME/lib"' >> $HOME/.bashrc
 	. $HOME/.bashrc
 
-* 시동디스크 선택창에 iso 파일 선택 -- [시작]
 
 #### **python의 easy_install을 사용하여 cx_Oracle 설치**
 * python이 설치되어 있는 경로의 bin/easy_install을 이용하여 cx_oracle 설치
@@ -53,3 +52,6 @@ author:            eceris
 #### **테스트**
 * python에서 import cx_Oracle 했을 때 정상 작동 되는지 확인
 ![](https://eceris.github.io/media/img/20160908_cxoracle.png)
+
+#### **관련 링크**
+https://gist.github.com/hangtwenty/5547377#file-centos_cx_oracle-L21
