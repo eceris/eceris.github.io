@@ -2,7 +2,7 @@
 layout:            post
 title:             "VirtualBox centos7 설치"
 date:              2016-09-07 16:50:00 +0300
-tags:              VirtualBox centos 7.0 
+tags:              VirtualBox centos 7.0
 category:          OS
 author:            eceris
 ---
@@ -40,6 +40,7 @@ jekyll 을 docker로 설치하기 위해 centos7.0 을 VirtualBox에 설치한�
 * CentOS7 우클릭 -- [설정]
 * 네트워크 -- 어댑터 1 -- 다음에 연결됨: NAT -- 케이블연결됨 : check
 * 네트워크 -- 어댑터 2 -- 다음에 연결됨: 호스트전용어댑터 -- 케이블연결됨 : check
+![](https://eceris.github.io/media/img/20160907_network.png)
 * [확인]
 
 #### **VM 시작, ISO 마운트**
@@ -63,8 +64,8 @@ jekyll 을 docker로 설치하기 위해 centos7.0 을 VirtualBox에 설치한�
 * [/etc/sysconfig/network-scripts/ifcfg-*]하위의 설정을 변경
 * 아래와 같이 Ethernet 2개를 설정(HWADDR은 VM네트워크 설정에 있는 MAC 주소를 지정)
 * ifcfg-enp0s3
-* ![](https://eceris.github.io/media/img/20160907_enp0s3.png)
+![](https://eceris.github.io/media/img/20160907_enp0s3.png)
 * ifcfg-enp0s8
-* ![](https://eceris.github.io/media/img/20160907_enp0s8.png)
+![](https://eceris.github.io/media/img/20160907_enp0s8.png)
 * [sudo network service restart] 명령어로 네트워크 서비스 재시작
 
