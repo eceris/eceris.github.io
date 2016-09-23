@@ -4,7 +4,7 @@ title:             "YAML 커스텀 특징"
 menutitle:         "YAML 특징"
 date:              2016-04-06 00:40:00 +0300
 tags:              Jekyll YAML 특징 설명
-category:          Features
+category:          Readme
 author:            eceris
 cover:             /assets/mountain-alternative-cover.jpg
 published:         true
