@@ -32,7 +32,7 @@ Python에서 MSSQL에 접속하여 쿼리를 수행하고 싶다면 pymssql 모�
 
 #### **trouble shooting**
 * sqlfront.h 파일을 찾지 못한다는 에러
-````
+```bash
 [root@do pymssql-2.1.3]# /opt/TerraceTims/3rd/python33/bin/python3.3 setup.py install
 setup.py: platform.system() => 'Linux'
 setup.py: platform.architecture() => ('64bit', 'ELF')
@@ -61,9 +61,9 @@ gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototy
 _mssql.c:266:22: error: sqlfront.h: 그런 파일이나 디렉터리가 없습니다
 In file included from _mssql.c:268:
 cpp_helpers.h:34:19: error: sybdb.h: 그런 파일이나 디렉터리가 없습니다
-````
+```
 * sqlfront.h, sybdb.h 를 python이 찾을 수 있도록 해주자.
-````
+```bash
 해결방안 : /usr/local/include, /usr/local/lib  디렉토리가 gcc 컴파일시 import 되고 있으므로 못찾고 있는 파일들을 해당 위치에 복사하면 끝!
 find . -name sqlfront.h
  >> ./freetds/nix_64/include/sqlfront.h
@@ -73,7 +73,7 @@ find . -name sybdb.h
  >> ./freetds/nix_32/include/sybdb.h
 cp pymssql-2.1.3/freetds/nix_64/include/* /usr/local/include
 cp pymssql-2.1.3/freetds/nix_64/lib/* /usr/local/lib
-````
+```
 
 
 
