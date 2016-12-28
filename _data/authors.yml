@@ -20,7 +20,7 @@ default:                                                      # Fallback if noth
   dribble:                                                    # OPTIONAL: used in the about page
   behance:                                                    # OPTIONAL: used in the about page
 jwillmer:
-  initial:      jwillmer
+  initial:      sh
   name:         "Jens Willmer"        
   cover:        /assets/mountain-alternative-cover.jpg  
   picture:      /assets/jwillmer.jpg  
@@ -28,4 +28,4 @@ jwillmer:
   location:     Germany 
   website:      "http://jwillmer.de/about" 
   twitter:      jenswillmer
-  github:       jwillmer
+  github:       eceris
