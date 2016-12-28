@@ -1,5 +1,5 @@
 default:                                                      # Fallback if nothing is specified
-  initial:      sh                                      # used for author lookup in posts and for first two characters in the about page back button
+  initial:      jwillmer                                      # used for author lookup in posts and for first two characters in the about page back button
   name:         "Sunghyun Park"                                # used to display author name
   cover:        /assets/mountain-alternative-cover.jpg        # OPTIONAL: defines location of cover image in about page
   picture:      /assets/eceris.png                          # OPTIONAL: author picture
@@ -19,12 +19,12 @@ default:                                                      # Fallback if noth
   pinterest:                                                  # OPTIONAL: used in the about page
   dribble:                                                    # OPTIONAL: used in the about page
   behance:                                                    # OPTIONAL: used in the about page
-# jwillmer:
-#   initial:      sh
-#   name:         "Sunghyun Park"        
-#   cover:        /assets/mountain-alternative-cover.jpg  
-#   picture:      /assets/eceris.png
-#   bio:          All about technology 
-#   location:     Korea 
-#   email:      eceris@gmail.com
-#   github:       eceris
+jwillmer:
+  initial:      sh
+  name:         "Sunghyun Park"        
+  cover:        /assets/mountain-alternative-cover.jpg  
+  picture:      /assets/eceris.png
+  bio:          All about technology 
+  location:     Korea 
+  email:      eceris@gmail.com
+  github:       eceris
