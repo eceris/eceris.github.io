@@ -19,7 +19,7 @@ default:                                                      # Fallback if noth
   pinterest:                                                  # OPTIONAL: used in the about page
   dribble:                                                    # OPTIONAL: used in the about page
   behance:                                                    # OPTIONAL: used in the about page
-jwillmer:
+eceris:
   initial:      sh
   name:         "Sunghyun Park"        
   cover:        /assets/mountain-alternative-cover.jpg  
