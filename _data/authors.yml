@@ -21,9 +21,9 @@ default:                                                      # Fallback if noth
   behance:                                                    # OPTIONAL: used in the about page
 jwillmer:
   initial:      sh
-  name:         "Jens Willmer"        
+  name:         "Sunghyun Park"        
   cover:        /assets/mountain-alternative-cover.jpg  
-  picture:      /assets/jwillmer.jpg  
+  picture:      /assets/eceris.png
   bio:          All about technology 
   location:     Germany 
   website:      "http://jwillmer.de/about" 
