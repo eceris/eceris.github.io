@@ -44,6 +44,7 @@ author:            eceris
 | Replace  | `Ctrl` + F -> `Ctrl` + `R` | |
 | **Find in Path** | `Ctrl` + `Shift` + `F` | |
 | **Refactoring** | | |
+| Extract **Constant** | `Ctrl` + `Alt` + `C` | |
 | Extract **Variable** | `Ctrl` + `Alt` + `V` | |
 | Extract **Method** | `Ctrl` + `Alt` + `M` | |
 | Variable **Rename** | `Shift` + `F6` | |
