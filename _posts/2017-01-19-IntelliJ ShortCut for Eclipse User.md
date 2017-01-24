@@ -19,6 +19,7 @@ author:            eceris
 | Navigate to **Line** | `Ctrl` + `G` | |
 | Navigate to **Declaration** | `Ctrl` + `B` | |
 | Navigate to **Implementation** | `Ctrl` + `Alt` + `B` | |
+| Navigate to **Usage** | `Alt` + `F7` | |
 | Navigate to **Super Method** | `Ctrl` + `U` | |
 | Navigate to **Previous Method** | `Alt` + `Up` | |
 | Navigate to **Next Method** | `Alt` + `Down` | |
