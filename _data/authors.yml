@@ -1,5 +1,5 @@
 default:                                                      # Fallback if nothing is specified
-  initial:      jwillmer                                      # used for author lookup in posts and for first two characters in the about page back button
+  initial:      sh                                      # used for author lookup in posts and for first two characters in the about page back button
   name:         "Sunghyun Park"                                # used to display author name
   cover:        /assets/mountain-alternative-cover.jpg        # OPTIONAL: defines location of cover image in about page
   picture:      /assets/eceris.png                          # OPTIONAL: author picture
