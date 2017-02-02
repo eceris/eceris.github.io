@@ -50,6 +50,8 @@ author:            eceris
 | Variable **Rename** | `Shift` + `F6` | |
 | Inline | `Ctrl` + `Alt` + `N` | |
 | Delete Line | `Ctrl` + `Y` | |
+| Move Statement UP | `Alt` + `Shift` + `↑` | |
+| Move Statement DOWN | `Alt` + `Shift` + `↓` | |
 | **Debugging** | | |
 | Debug | `Shift` + `F9` | |
 | Run | `Shift` + `F10` | |
