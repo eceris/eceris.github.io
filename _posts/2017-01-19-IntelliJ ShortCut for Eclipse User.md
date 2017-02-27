@@ -52,6 +52,7 @@ author:            eceris
 | Delete Line | `Ctrl` + `Y` | |
 | Move Statement UP | `Alt` + `Shift` + `↑` | |
 | Move Statement DOWN | `Alt` + `Shift` + `↓` | |
+| Toggle **lower or Upper** Case | `Ctrl` + `Shift` + `U` | |
 | **Debugging** | | |
 | Debug | `Shift` + `F9` | |
 | Run | `Shift` + `F10` | |
