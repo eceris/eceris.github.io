@@ -7,7 +7,7 @@ category:          Tool
 author:            eceris
 ---
 
-# IntelliJ 단축키 모음 [업데이트 중]
+# Eclipse 사용자를 위한 IntelliJ 단축키 모음 [업데이트 중]
 자주 사용하는 인텔리제이 단축키 모음
 
 | 기능 | IntelliJ | Eclipse |
@@ -64,4 +64,16 @@ author:            eceris
 | **Auto format** | `Ctrl` + `Alt` + `L` | |
 | **Optimizing Import** | `Ctrl` + `Alt` + `O` | |
 
+
+용어 비교
+
+|IntelliJ | Eclipse |
+|:--------|:--------|
+| Project | Workspace |
+| Module | Project |
+| Module JDK | Project-specific JRE |
+| Grobal library | User library |
+| Path variable | Classpath variable |
+| Module dependency | Project dependency |
+| Module library | Library |
 
