@@ -63,6 +63,9 @@ author:            eceris
 | **Etc** | | |
 | **Auto format** | `Ctrl` + `Alt` + `L` | |
 | **Optimizing Import** | `Ctrl` + `Alt` + `O` | |
+| **Viewing all breakpoints** | `Ctrl` + `Shift` + `F8` | |
+| **Add Bookmark** | 'F11` | |
+| **Show Bookmark** | `Shift` + `F11` | |
 
 
 용어 비교
