@@ -3,7 +3,7 @@ layout:            post
 title:             "CentOS6 psycopg2 설치"
 date:              2016-09-23 17:30:00 +0300
 tags:              psycopg2 python
-category:          OS
+category:          Infra
 author:            eceris
 ---
 

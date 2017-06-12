@@ -3,7 +3,7 @@ layout:            post
 title:             "CentOS6 pymssql 설치"
 date:              2016-11-03 17:30:00 +0300
 tags:              pymssql python
-category:          OS
+category:          Infra
 author:            eceris
 ---
 

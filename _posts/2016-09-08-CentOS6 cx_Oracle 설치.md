@@ -3,7 +3,7 @@ layout:            post
 title:             "CentOS6 cx_Oracle 설치"
 date:              2016-09-08 12:50:00 +0300
 tags:              cx_Oracle python
-category:          OS
+category:          Infra
 author:            eceris
 ---
 

@@ -3,7 +3,7 @@ layout:            post
 title:             "VirtualBox centos7 설치"
 date:              2016-09-07 16:50:00 +0300
 tags:              VirtualBox centos 7.0
-category:          OS
+category:          Infra
 author:            eceris
 ---
 
