@@ -49,7 +49,7 @@ Spring-Web 모듈에는 Spring WebFlux의 밑바탕이되는 reactive foundation
 
 이 기반에서 Spring WebFlux는 두 가지 프로그래밍 모델 중에서 선택할 수 있습니다.
 
-  - Annotation을 사용한 Controllers : Spring MVC와 일치하며, spring-web 모듈의 annotation과 동일한 방식의 모델.(주목할만한 차이점은 WebFlux가 reactive @RequestBody 인수를 지원한다는 것입니다.)
+  - Annotation을 사용한 Controllers : Spring MVC와 일치하며, spring-web 모듈의 annotation과 동일한 방식의 모델.(주목할만한 차이점은 WebFlux가 reactive \@RequestBody 인수를 지원한다는 것입니다.)
   - Functional Endpoints : 람다 based, 가벼운 functional 프로그래밍 모델(어플리케이션이 처음부터 끝까지 요청의 처리를 담당하는 anntation 모델과의 가장 큰 차이점은 annotation을 통해 intent를 선언하고 콜백으로 다시 호출된다는 점 입니다.)
 
 
@@ -224,7 +224,7 @@ DispatcherHandler는 요청을 처리하고 적절한 응답을 렌더링하기 
 |:--------|:--------|
 | HandlerMapping | Request를 handler에 매핑합니다. 매핑은 HandlerMapping 구현에 따라 세부사항이 달라지는 몇가지 기준을 기반으로 합니다(ex: annotated controllers, simple URL pattern mappings). |
 | HandlerAdapter | DispatcherHandler가 핸들러가 실제로 호출되는 방법에 관계없이 요청에 매핑 된 핸들러를 호출 할 수있게 도와줍니다. 예를 들어 annotated controllers를 호출하려면 Annotation을 해석해야합니다. HandlerAdapter의 주요 목적은 DispatcherHandler를 그러한 세부 사항으로부터 보호하는 것입니다.|
-| HandlerResultHandler | Handler호출의 결과를 처리하여 response를 마무리합니다. 내장 HandlerResultHandler 구현은 ResponseEntity 리턴 값을 지원하는 ResponseEntityResultHandler, @ResponseBody 메소드를 지원하는 ResponseBodyResultHandler, functional 엔드 포인트에서 리턴 된 ServerResponse를 지원하는 ServerResponseResultHandler 그리고 뷰 및 모델로 렌더링을 지원하는 ViewResolutionResultHandler입니다. |
+| HandlerResultHandler | Handler호출의 결과를 처리하여 response를 마무리합니다. 내장 HandlerResultHandler 구현은 ResponseEntity 리턴 값을 지원하는 ResponseEntityResultHandler, \@ResponseBody 메소드를 지원하는 ResponseBodyResultHandler, functional 엔드 포인트에서 리턴 된 ServerResponse를 지원하는 ServerResponseResultHandler 그리고 뷰 및 모델로 렌더링을 지원하는 ViewResolutionResultHandler입니다. |
 
 # 1.3.2. Framework Config
 DispatcherHandler는 ApplicationContext에서 필요한 특수 bean을 감지합니다. 어플리케이션은 원하는 special beans을 선언 할 수 있습니다. 그러나 대부분의 애플리케이션은 더 높은 수준의 구성 API를 제공하는 WebFlux Java 구성에서 더 나은 출발점을 찾아 필요한 Bean 선언을 만듭니다.
@@ -236,7 +236,7 @@ DispatcherHandler는 다음과 같이 요청을 처리합니다.
  - HandlerResult는 적절한 HandlerResultHandler에 주어져 응답에 직접 쓰거나 렌더링 할 뷰를 사용하여 처리를 완료합니다.
 
 ## 1.4. Annotated Controllers
-Spring WebFlux는 @Controller 및 @RestController 구성 요소가 Annotation을 사용하여 요청 매핑, 요청 입력, 예외 처리 등을 표현하는 Annotation 기반 프로그래밍 모델을 제공합니다. Annotation 컨트롤러에는 유연한 메서드 서명이 있으며 기본 클래스를 확장하거나 특정 인터페이스를 구현할 필요가 없습니다.
+Spring WebFlux는 \@Controller 및 \@RestController 구성 요소가 Annotation을 사용하여 요청 매핑, 요청 입력, 예외 처리 등을 표현하는 Annotation 기반 프로그래밍 모델을 제공합니다. Annotation 컨트롤러에는 유연한 메서드 서명이 있으며 기본 클래스를 확장하거나 특정 인터페이스를 구현할 필요가 없습니다.
 ```java
 @RestController
 public class HelloController {
@@ -249,10 +249,10 @@ public class HelloController {
 ```
 이 예제에서 메서드는 응답 본문에 쓸 String을 반환합니다.
 
-# 1.4.1. @Controller
-표준 스프링 빈 정의를 사용하여 컨트롤러 빈을 정의 할 수 있습니다. @Controller 스테레오 타입은 클래스 패스에서 @Component 클래스를 감지하고 bean 정의를 자동 등록하는 Spring의 일반적인 지원과 일치하는 자동 Detection 을 허용합니다. 또한 annotation이 달린 클래스의 스테레오 타입 역할을 하여 웹 컴포넌트 역할을 나타냅니다.
+# 1.4.1. \@Controller
+표준 스프링 빈 정의를 사용하여 컨트롤러 빈을 정의 할 수 있습니다. \@Controller 스테레오 타입은 클래스 패스에서 \@Component 클래스를 감지하고 bean 정의를 자동 등록하는 Spring의 일반적인 지원과 일치하는 자동 Detection 을 허용합니다. 또한 annotation이 달린 클래스의 스테레오 타입 역할을 하여 웹 컴포넌트 역할을 나타냅니다.
 
-이러한 @Controller 빈을 자동 Detection 하려면 Java 구성에 구성 요소 검색을 추가 할 수 있습니다.
+이러한 \@Controller 빈을 자동 Detection 하려면 Java 구성에 구성 요소 검색을 추가 할 수 있습니다.
 ```java
 @Configuration
 @ComponentScan("org.example.web")
@@ -262,22 +262,22 @@ public class WebConfig {
 }
 ```
 
-@RestController는 @Controller와 @ResponseBody가 합쳐진 Annotation으로, 모든 메소드가 @ResponseBody Annotation을 type-level에서 상속하므로 response body (vs model-and-view rendering)에 기록합니다.
+\@RestController는 \@Controller와 \@ResponseBody가 합쳐진 Annotation으로, 모든 메소드가 \@ResponseBody Annotation을 type-level에서 상속하므로 response body (vs model-and-view rendering)에 기록합니다.
 
 # 1.4.2. Request Mapping
-@RequestMapping Annotation은 요청을 매핑하는 데 사용됩니다. URL, HTTP 메소드, 요청 매개 변수, 헤더 및 미디어 유형에 따라 일치시킬 다양한 속성이 있습니다. 클래스 레벨에서 공유 맵핑을 표현하거나 메소드 레벨에서 특정 엔드 포인트 맵핑으로 범위를 좁히기 위해 사용할 수 있습니다.
+\@RequestMapping Annotation은 요청을 매핑하는 데 사용됩니다. URL, HTTP 메소드, 요청 매개 변수, 헤더 및 미디어 유형에 따라 일치시킬 다양한 속성이 있습니다. 클래스 레벨에서 공유 맵핑을 표현하거나 메소드 레벨에서 특정 엔드 포인트 맵핑으로 범위를 좁히기 위해 사용할 수 있습니다.
 
-@RequestMapping의 HTTP 메소드 관련 단축키 변형도 있습니다.
- - @GetMapping
+\@RequestMapping의 HTTP 메소드 관련 단축키 변형도 있습니다.
+ - \@GetMapping
 
- - @PostMapping
+ - \@PostMapping
 
- - @PutMapping
+ - \@PutMapping
 
- - @DeleteMapping
+ - \@DeleteMapping
 
- - @PatchMapping
-단축키 변형은 구성된 Annotation (@RequestMapping으로 Annotation이 포함된)입니다. 이들은 일반적으로 메소드 레벨에서 사용됩니다. 클래스 수준에서 @RequestMapping은 공유 매핑을 표현하는 데 더 유용합니다.
+ - \@PatchMapping
+단축키 변형은 구성된 Annotation (\@RequestMapping으로 Annotation이 포함된)입니다. 이들은 일반적으로 메소드 레벨에서 사용됩니다. 클래스 수준에서 \@RequestMapping은 공유 매핑을 표현하는 데 더 유용합니다.
 ```java
 @RestController
 @RequestMapping("/persons")
@@ -298,10 +298,10 @@ class PersonController {
 # URI Patterns
 glob 패턴 및 와일드 카드를 사용하여 요청을 매핑 할 수 있습니다.
  - ? : 한문자 일치
- - * : 경로 세그먼트 내의 0 개 이상의 문자와 일치합니다.
- - ** : 0 개 이상의 경로 세그먼트와 일치
+ - \* : 경로 세그먼트 내의 0 개 이상의 문자와 일치합니다.
+ - \*\* : 0 개 이상의 경로 세그먼트와 일치
 
-또한 URI 변수를 선언하고 @PathVariable을 사용하여 값에 액세스 할 수 있습니다.
+또한 URI 변수를 선언하고 \@PathVariable을 사용하여 값에 액세스 할 수 있습니다.
 ```java
 @GetMapping("/owners/{ownerId}/pets/{petId}")
 public Pet findPet(@PathVariable Long ownerId, @PathVariable Long petId) {
@@ -323,7 +323,7 @@ public class OwnerController {
 
 URI 변수는 자동으로 적절한 유형으로 변환되거나 'TypeMismatchException'이 발생합니다. 단순 유형 - int, long, Date는 기본적으로 지원되며 다른 모든 데이터 유형에 대한 지원을 등록 할 수 있습니다.
 
-URI 변수는 명시 적으로 이름을 지정할 수 있습니다. 예 : @PathVariable ( "customId"), 이름이 동일하고 디버깅 정보 또는 Java 8의 -parameters 컴파일러 플래그로 코드가 컴파일 된 경우 해당 세부 정보를 남길 수 있습니다.
+URI 변수는 명시 적으로 이름을 지정할 수 있습니다. 예 : \@PathVariable ( "customId"), 이름이 동일하고 디버깅 정보 또는 Java 8의 -parameters 컴파일러 플래그로 코드가 컴파일 된 경우 해당 세부 정보를 남길 수 있습니다.
 
 구문 {\*varName}은 0 개 이상의 나머지 경로 세그먼트와 일치하는 URI 변수를 선언합니다. 예를 들어, /resources/{\*path}는 모든 파일 /resources/와 일치하고 "path"변수는 완전한 상대 경로를 캡처합니다.
 ```java
@@ -377,7 +377,7 @@ Media type은 character set 를 지정할 수 있습니다. 제외 된 표현식
 
 > MediaType은 일반적으로 사용되는 미디어 유형에 대한 상수를 제공합니다. APPLICATION_JSON_VALUE, APPLICATION_JSON_UTF8_VALUE.
 
-#Parameters and Headers
+# Parameters and Headers
 쿼리 매개 변수 조건을 기반으로 요청 매핑 범위를 좁힐 수 있습니다. 부재 ( "! myParam") 또는 특정 값 ( "myParam = myValue")에 대한 쿼리 매개 변수 ( "myParam")의 존재 여부를 테스트 할 수 있습니다.
 ```java
 @GetMapping(path = "/pets/{petId}", params = "myParam=myValue")
@@ -396,24 +396,24 @@ public void findPet(@PathVariable String petId) {
 ```
 
 # HTTP HEAD, OPTIONS
-@GetMapping - @RequestMapping (method = HttpMethod.GET)은 요청 매핑 목적으로 HTTP HEAD를 투명하게 지원합니다. 컨트롤러 메소드는 변경할 필요가 없습니다. HttpHandler 서버 어댑터에 적용된 응답 래퍼는 "Content-Length"헤더가 기록 된 바이트 수로 설정되고 실제로 응답에 쓰지 않도록합니다.
+\@GetMapping - \@RequestMapping (method = HttpMethod.GET)은 요청 매핑 목적으로 HTTP HEAD를 투명하게 지원합니다. 컨트롤러 메소드는 변경할 필요가 없습니다. HttpHandler 서버 어댑터에 적용된 응답 래퍼는 "Content-Length"헤더가 기록 된 바이트 수로 설정되고 실제로 응답에 쓰지 않도록합니다.
 
-기본적으로 HTTP OPTIONS는 URL 패턴이 일치하는 모든 @RequestMapping 메소드에 나열된 HTTP 메소드 목록에 
+기본적으로 HTTP OPTIONS는 URL 패턴이 일치하는 모든 \@RequestMapping 메소드에 나열된 HTTP 메소드 목록에 
 허락되는 응답 헤더를 설정하여 처리됩니다.
 
-HTTP 메소드 선언이없는 @RequestMapping의 경우 허용된 헤더가 "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS"로 설정됩니다. 컨트롤러 메소드는 @GetMapping, @PostMapping 등과 같은 HTTP 메소드 특정 변형을 사용하여 지원되는 HTTP 메소드를 항상 선언해야합니다.
+HTTP 메소드 선언이없는 \@RequestMapping의 경우 허용된 헤더가 "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS"로 설정됩니다. 컨트롤러 메소드는 \@GetMapping, \@PostMapping 등과 같은 HTTP 메소드 특정 변형을 사용하여 지원되는 HTTP 메소드를 항상 선언해야합니다.
 
-@RequestMapping 메서드는 HTTP HEAD 및 HTTP OPTIONS에 명시 적으로 매핑 될 수 있지만 일반적인 경우에는 필요하지 않습니다.
+\@RequestMapping 메서드는 HTTP HEAD 및 HTTP OPTIONS에 명시 적으로 매핑 될 수 있지만 일반적인 경우에는 필요하지 않습니다.
 
 
 # 1.4.3. Handler methods
-@RequestMapping handler 메서드는 유연한 서명을 가지며 지원되는 컨트롤러 메서드 인수 및 반환 값 범위에서 선택할 수 있습니다.
+\@RequestMapping handler 메서드는 유연한 서명을 가지며 지원되는 컨트롤러 메서드 인수 및 반환 값 범위에서 선택할 수 있습니다.
 
 아래 표는 지원되는 컨트롤러 메소드 인수를 보여줍니다.
 
 Reactive Type (Reactor, RxJava 또는 기타)은 blocking I/O가 필요한 인수에서 지원됩니다. 해결할 요청 본문을 읽습니다. 설명 열에 표시됩니다. Blocking을 필요로하지 않는 인수에는 Reactive types이 필요하지 않습니다.
 
-JDK 1.8의 java.util.Optional은 require attribute를 가진 annotation들을 메소드 argument로써 지원합니다.(ex: @RequestParam, @RequestHeader, etc, and is equivalent to required=false. )
+JDK 1.8의 java.util.Optional은 require attribute를 가진 annotation들을 메소드 argument로써 지원합니다.(ex: \@RequestParam, \@RequestHeader, etc, and is equivalent to required=false. )
 
 | Controller method argument | Description |
 |:--------|:--------|
@@ -425,20 +425,20 @@ JDK 1.8의 java.util.Optional은 require attribute를 가진 annotation들을 �
 | java.util.Locale | request의 현재 locale, 사용가능한 LocaleResolver에 의해 결정됨.|
 | Java 6+: java.util.TimeZone
 Java 8+: java.time.ZoneId | request와 관련된 timezone, LocaleContextResolver에 의해 결정 |
-| @PathVariable | URI 템플릿 변수에 접근하기 위한 인수 |
-| @MatrixVariable | URI path segments의 name-value pair에 접근하기 위한 인수 |
-| @RequestParam | Servlet request parameters에 접근하기 위한 인수 |
-| @RequestHeader | request의 header에 접근하기 위한 인수 |
-| @RequestBody | requset의 body에 접근하기 위한 인수  |
+| \@PathVariable | URI 템플릿 변수에 접근하기 위한 인수 |
+| \@MatrixVariable | URI path segments의 name-value pair에 접근하기 위한 인수 |
+| \@RequestParam | Servlet request parameters에 접근하기 위한 인수 |
+| \@RequestHeader | request의 header에 접근하기 위한 인수 |
+| \@RequestBody | requset의 body에 접근하기 위한 인수  |
 | HttpEntity<B> | request의 header와 body에 접근하기 위한 인수(body는 HttpMessageReader에 의해 변환됨) |
-| @RequestPart | multipart/form-data request에 접근하기 위한 인수 |
+| \@RequestPart | multipart/form-data request에 접근하기 위한 인수 |
 | java.util.Map, org.springframework.ui.Model, org.springframework.ui.ModelMap | web view로 노출되는 암시적 모델에 업데이트 혹은 접근하기 위한 인수 |
-| Command or form object (with optional @ModelAttribute) | request parameter에 바인드할 속성이 있는 Command 객체|
+| Command or form object (with optional \@ModelAttribute) | request parameter에 바인드할 속성이 있는 Command 객체|
 | Errors, BindingResult | command/form 객체 데이터 바인딩에 대한 Validation 검사 결과 |
-| SessionStatus | class-level 의 @SessionAttributes annotation을 통해 session attribute의 cleanup을 트리거하는 form 처리의 완료를 마킹 |
+| SessionStatus | class-level 의 \@SessionAttributes annotation을 통해 session attribute의 cleanup을 트리거하는 form 처리의 완료를 마킹 |
 | UriComponentsBuilder | 현재 request의 host, prot, scheme, context path 와 servlet 매핑을 준비하기 위한 인수. Forwarded 및 X-Forwarded- * 헤더도 고려합니다. |
-| @SessionAttribute | 모든 session attribute 에 접근하기 위한 인수;  |
-| @RequestAttribute | request attributes에 접근하기 위한 인수 |
+| \@SessionAttribute | 모든 session attribute 에 접근하기 위한 인수;  |
+| \@RequestAttribute | request attributes에 접근하기 위한 인수 |
 
 
 
@@ -448,14 +448,14 @@ Java 8+: java.time.ZoneId | request와 관련된 timezone, LocaleContextResolver
 
 | Controller method return value | Description |
 |:--------|:--------|
-| @ResponseBody | 반환 값은 HttpMessageWriters를 통해 인코딩되고 응답에 기록됩니다. |
+| \@ResponseBody | 반환 값은 HttpMessageWriters를 통해 인코딩되고 응답에 기록됩니다. |
 | HttpEntity<B>, ResponseEntity<B> | 반환 값은 HTTP 헤더 및 본문을 포함하는 전체 응답을 지정하며 HttpMessageWriters를 통해 인코딩되고 응답에 기록됩니다. |
 | HttpHeaders | header는 포함되고 body는 없는 응답 |
 | String | ViewResolver로 resolve되며 암시적 모델과 함께 사용되는 뷰의 이름 |
 | View | 암시 적 모델과 함께 렌더링 할 View 인스턴스 |
 | java.util.Map, org.springframework.ui.Model | view name과 함께 암시적 모델로 추가되는 attributes(암시 적으로 요청 경로에서 결정) |
 | Rendering | 모델 및 view rendering 시나리오를 위한 API |
-| void | void를 가지는 메소드, 비동기 가능, return type (또는 반환 값 null)은 ServerHttpResponse 또는 ServerWebExchange 인수 또는 @ResponseStatus annotation이 있는 경우 응답을 완전히 처리 한 것으로 간주됩니다. |
+| void | void를 가지는 메소드, 비동기 가능, return type (또는 반환 값 null)은 ServerHttpResponse 또는 ServerWebExchange 인수 또는 \@ResponseStatus annotation이 있는 경우 응답을 완전히 처리 한 것으로 간주됩니다. |
 | Flux<ServerSentEvent>, Observable<ServerSentEvent>, or other reactive type | 서버가 보낸 이벤트 방출 |
 | Any other return type | RequestToViewNameTranslator를 통해 암시 적으로 결정된 뷰 이름을 사용하여 암시 적 모델에 추가 할 단일 모델 속성 |
 
@@ -463,7 +463,7 @@ Java 8+: java.time.ZoneId | request와 관련된 timezone, LocaleContextResolver
 Spring WebFlux는 기능을 사용하여 요청을 라우팅하고 처리하고 약속이 변경되지 않도록 설계된 경량의 기능 프로그래밍 모델을 제공합니다. Annotation 기반 프로그래밍 모델의 대안이지만 동일한 Reactive Spring Web 기반에서 실행됩니다.
 
 # 1.5.1. HandlerFunction
-들어오는 HTTP 요청은 본질적으로 ServerRequest를 사용하고 Mono <ServerResponse>를 반환하는 함수 인 HandlerFunction에 의해 처리됩니다. 핸들러 함수에 대응되는 Annotation은 @RequestMapping 메소드입니다. 
+들어오는 HTTP 요청은 본질적으로 ServerRequest를 사용하고 Mono <ServerResponse>를 반환하는 함수 인 HandlerFunction에 의해 처리됩니다. 핸들러 함수에 대응되는 Annotation은 \@RequestMapping 메소드입니다. 
 
 ServerRequest 및 ServerResponse는, reactive Stream의 Non-Blocking backpressure으로, 기본이되는 HTTP 메세지의 친숙한 액세스를 제공하는 불변의 JDK-8 인터페이스입니다. 요청은 Reactor Flux  또는 Mono  유형으로 body 를 노출합니다. 응답은 본문으로 모든 Reactive Stream Publisher를 허용합니다 (Reactive Libraries 참고).
 
@@ -542,7 +542,7 @@ public class PersonHandler {
 
 # 1.5.2. RouterFunction
 
-들어오는 요청은 ServerRequest를 사용하고 Mono <HandlerFunction>를 반환하는 함수 인 RouterFunction을 사용하여 handler 함수로 라우팅됩니다. 요청이 특정 경로와 일치하면 핸들러 함수가 반환됩니다. 그렇지 않으면 빈 Mono를 반환합니다. RouterFunction은 @Controller 클래스의 @RequestMapping Annotation과 비슷한 목적을 가지고 있습니다.
+들어오는 요청은 ServerRequest를 사용하고 Mono <HandlerFunction>를 반환하는 함수 인 RouterFunction을 사용하여 handler 함수로 라우팅됩니다. 요청이 특정 경로와 일치하면 핸들러 함수가 반환됩니다. 그렇지 않으면 빈 Mono를 반환합니다. RouterFunction은 \@Controller 클래스의 \@RequestMapping Annotation과 비슷한 목적을 가지고 있습니다.
 
 일반적으로 라우터 함수는 직접 작성하지 않고 RouterFunctions.route (RequestPredicate, HandlerFunction)를 사용하여 요청 predicate 및 handler 함수를 사용하여 라우터 함수를 만듭니다. predicate가 적용되면 요청은 주어진 handler 함수로 라우트됩니다. 그렇지 않으면 라우팅이 수행되지 않으므로 404 Not Found 응답이 발생합니다. RequestPredicates 유틸리티 클래스는 경로, HTTP 메소드, 컨텐츠 유형 등을 기반으로하는 일치 검색과 같이 일반적으로 사용되는 조건자를 제공합니다. 경로를 사용하여 "Hello World"경로로 라우팅 할 수 있습니다. 
 ```java
@@ -575,7 +575,7 @@ HTTP 서버에서 라우터 기능을 어떻게 실행합니까? 간단한 옵�
 DispatcherHandler 설정을 Annotation 컨트롤러와 나란히 실행할 수도 있습니다. 가장 쉬운 방법은 라우터 및 handler 기능을 사용하여 요청을 처리하는 데 필요한 구성을 만드는 WebFlux Java Config를 사용하는 것입니다.
 
 # 1.5.4. HandlerFilterFunction
-라우터 함수에 의해 매핑 된 경로는 RouterFunction.filter(HandlerFilterFunction)를 호출하여 필터링 할 수 있습니다. HandlerFilterFunction은 본질적으로 ServerRequest 및 HandlerFunction을 사용하는 함수이며 ServerResponse를 반환합니다. 핸들러 함수 매개 변수는 체인의 다음 요소를 나타내며 일반적으로 라우팅되는 HandlerFunction이지만 여러 필터가 적용될 경우 다른 FilterFunction이 될 수도 있습니다. Annotation을 사용하면 @ControllerAdvice 및 / 또는 ServletFilter를 사용하여 유사한 기능을 구현할 수 있습니다. 우리의 경로에 간단한 보안 필터를 추가해 봅시다. 특정 경로가 허용되는지 여부를 결정할 수있는 SecurityManager가 있다고 가정합니다.
+라우터 함수에 의해 매핑 된 경로는 RouterFunction.filter(HandlerFilterFunction)를 호출하여 필터링 할 수 있습니다. HandlerFilterFunction은 본질적으로 ServerRequest 및 HandlerFunction을 사용하는 함수이며 ServerResponse를 반환합니다. 핸들러 함수 매개 변수는 체인의 다음 요소를 나타내며 일반적으로 라우팅되는 HandlerFunction이지만 여러 필터가 적용될 경우 다른 FilterFunction이 될 수도 있습니다. Annotation을 사용하면 \@ControllerAdvice 및 / 또는 ServletFilter를 사용하여 유사한 기능을 구현할 수 있습니다. 우리의 경로에 간단한 보안 필터를 추가해 봅시다. 특정 경로가 허용되는지 여부를 결정할 수있는 SecurityManager가 있다고 가정합니다.
 ```java
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 
@@ -604,7 +604,7 @@ Java 구성에 의해 만들어진 기본 bean을 이해할 필요는 없지만 
 
 
 # 1.6.1. Enable WebFlux config
-Java 구성에서 @EnableWebFlux 주석을 사용하십시오.
+Java 구성에서 \@EnableWebFlux 주석을 사용하십시오.
 ```java
 @Configuration
 @EnableWebFlux
@@ -628,7 +628,7 @@ public class WebConfig implements WebFluxConfigurer {
 ```
 
 # 1.6.3. Conversion, formatting
-@NumberFormat 및 @DateTimeFormat 주석에 대한 지원을 포함하여 기본적으로 Number 및 Date 유형의 포맷터가 설치됩니다. Joda Time이 클래스 경로에 있는 경우 Joda Time 형식 라이브러리에 대한 완벽한 지원도 설치됩니다.
+\@NumberFormat 및 \@DateTimeFormat 주석에 대한 지원을 포함하여 기본적으로 Number 및 Date 유형의 포맷터가 설치됩니다. Joda Time이 클래스 경로에 있는 경우 Joda Time 형식 라이브러리에 대한 완벽한 지원도 설치됩니다.
 
 사용자 정의 converters 및 formatters 를 등록하려면 다음을 수행하십시오.
 ```java
@@ -647,7 +647,7 @@ public class WebConfig implements WebFluxConfigurer {
 > FormatterRegistrars의 사용시기에 대한 자세한 내용은 FormatterRegistrar SPI 및 FormattingConversionServiceFactoryBean을 참조하십시오.
 
 # 1.6.4. Validation
-Bean 유효성 검사(ex : Hibernate Validator)가 클래스 경로에 있는 경우 기본적으로 LocalValidatorFactoryBean은 @Valid와 함께 사용하기위한 전역 Validator로 등록되고 @Controller 메소드 인수에서 유효성 검사를받습니다.
+Bean 유효성 검사(ex : Hibernate Validator)가 클래스 경로에 있는 경우 기본적으로 LocalValidatorFactoryBean은 \@Valid와 함께 사용하기위한 전역 Validator로 등록되고 \@Controller 메소드 인수에서 유효성 검사를받습니다.
 
 Java 구성에서 전역 Validator instance를 커스터마이징 할 수 있습니다.
 ```java
@@ -676,10 +676,10 @@ public class MyController {
 }
 ```
 
-> 어딘가에 LocalValidatorFactoryBean을 삽입해야한다면, MVC 설정에서 선언 된 것과 충돌을 피하기 위해 빈을 만들어 @Primary로 표시하십시오.
+> 어딘가에 LocalValidatorFactoryBean을 삽입해야한다면, MVC 설정에서 선언 된 것과 충돌을 피하기 위해 빈을 만들어 \@Primary로 표시하십시오.
 
 # 1.6.5. Content type resolvers
-Spring WebFlux가 요청에서 @Controller에 대해 요청 된 미디어 유형을 결정하는 방법을 구성 할 수 있습니다. 기본적으로 "Accept"헤더만 선택되어 있지만 query parameter 기반 전략을 사용하도록 설정할 수도 있습니다.
+Spring WebFlux가 요청에서 \@Controller에 대해 요청 된 미디어 유형을 결정하는 방법을 구성 할 수 있습니다. 기본적으로 "Accept"헤더만 선택되어 있지만 query parameter 기반 전략을 사용하도록 설정할 수도 있습니다.
 ```java
 @Configuration
 @EnableWebFlux
@@ -815,9 +815,9 @@ public class WebConfig implements WebFluxConfigurer {
 ```
 
 # 1.6.10. Advanced config mode
-@EnableWebFlux는 (1) WebFlux 응용 프로그램에 대한 기본 Spring 구성을 제공하고 (2) WebFluxConfigurer를 감지하고 위임하여 해당 구성을 사용자 지정하는 DelegatingWebFluxConfiguration을 가져옵니다.
+\@EnableWebFlux는 (1) WebFlux 응용 프로그램에 대한 기본 Spring 구성을 제공하고 (2) WebFluxConfigurer를 감지하고 위임하여 해당 구성을 사용자 지정하는 DelegatingWebFluxConfiguration을 가져옵니다.
 
-고급 모드의 경우 @EnableWebFlux를 제거하고 WebFluxConfigurer를 구현하는 대신 DelegatingWebFluxConfiguration에서 직접 확장합니다.
+고급 모드의 경우 \@EnableWebFlux를 제거하고 WebFluxConfigurer를 구현하는 대신 DelegatingWebFluxConfiguration에서 직접 확장합니다.
 ```java
 @Configuration
 public class WebConfig extends DelegatingWebFluxConfiguration {
