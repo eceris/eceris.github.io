@@ -105,6 +105,7 @@ Spring-web 모듈은 반응이 적은 웹 애플리케이션을 구축하기 위
 모든 HTTP 서버에는 HTTP 요청 처리를위한 API가 있습니다. HttpHandler는 요청 및 응답을 처리하는 한 가지 방법을 사용하는 간단한 약속입니다. 그것은 아주 minimal 하게 만들어 졌으며, 주요 목적은 서로 다른 서버에서 HTTP 요청 처리를 위한 공통 Reactive Stream 기반 API를 제공하는 것입니다.
 
 spring-web 모듈에는 지원되는 모든 서버에 대한 어댑터가 있습니다. 아래 표는 서버 API가 사용되고 Reactive Streams 지원이 제공되는 위치를 보여줍니다.
+
 | Server name | Server API used | Reactive Streams support |
 |:--------|:--------|:--------|
 | Netty | Netty API | Reactor Netty |
@@ -114,6 +115,7 @@ spring-web 모듈에는 지원되는 모든 서버에 대한 어댑터가 있습
 | Servlet 3.1 container | Servlet 3.1 non-blocking I/O | spring-web: Servlet 3.1 non-blocking I/O to Reactive Streams bridge |
 
 다음은 각 서버에 대한 필수 종속성, 지원되는 버전 및 코드조각 입니다. 
+
 | Server name | Group id | Artifact name |
 |:--------|:--------|:--------|
 | Reactor Netty | io.projectreactor.ipc | reactor-netty |
@@ -174,6 +176,7 @@ HttpHandler는 다른 서버에서 실행하기 위한 기본입니다. 이 기�
 모든 컴포넌트는 ServerWebExchange에서 동작합니다- 요청 속성, 세션 속성, 양식 데이터, 멀티 파트 데이터에 대한 액세스 등을 추가하는 HTTP 요청 및 응답을위한 컨테이너.
 
 processing chain은 WebHttpHandlerBuilder와 함께 사용할 수 있습니다. WebHttpHandlerBuilder는  server adapter로 실행될 수있는 HttpHandler를 만듭니다. 빌더를 사용하려면 컴포넌트를 개별적으로 추가하거나 ApplicationContext를 가리켜 다음을 탐지해야합니다.
+
 | Bean name | Bean type  | Count | Description |
 |:--------|:--------|:--------|:--------|
 | "webHandler" | WebHandler | 1 | 필터 후 Target handler |
@@ -216,6 +219,7 @@ HttpHandler handler = WebHttpHandlerBuilder.applicationContext(context);
 
 # 1.3.1. Special bean types
 DispatcherHandler는 요청을 처리하고 적절한 응답을 렌더링하기 위해 special beans에 위임합니다. "special beans"이란 아래 표에 나열된 프레임 워크 약속 중 하나를 구현하는 Spring 관리 객체 인스턴스를 의미합니다. Spring WebFlux는 이러한 계약의 기본 구현을 제공하지만 커스터마이징, 확장 또는 대체 할 수도 있습니다.
+
 | Bean type | Explanation |
 |:--------|:--------|
 | HandlerMapping | Request를 handler에 매핑합니다. 매핑은 HandlerMapping 구현에 따라 세부사항이 달라지는 몇가지 기준을 기반으로 합니다(ex: annotated controllers, simple URL pattern mappings). |
@@ -410,6 +414,7 @@ HTTP 메소드 선언이없는 @RequestMapping의 경우 허용된 헤더가 "GE
 Reactive Type (Reactor, RxJava 또는 기타)은 blocking I/O가 필요한 인수에서 지원됩니다. 해결할 요청 본문을 읽습니다. 설명 열에 표시됩니다. Blocking을 필요로하지 않는 인수에는 Reactive types이 필요하지 않습니다.
 
 JDK 1.8의 java.util.Optional은 require attribute를 가진 annotation들을 메소드 argument로써 지원합니다.(ex: @RequestParam, @RequestHeader, etc, and is equivalent to required=false. )
+
 | Controller method argument | Description |
 |:--------|:--------|
 | ServerWebExchange | 전체 ServerWebExchange에 대한 접근 - HTTP request 와 response, request 와 session attribute, checkNotModified 메소드 등을 위한 컨테이너. |
@@ -440,6 +445,7 @@ Java 8+: java.time.ZoneId | request와 관련된 timezone, LocaleContextResolver
 
 # Return values
 아래 표는 지원되는 컨트롤러 메서드 반환 값을 보여줍니다. 반응 형 - 모든 반환 값에 대해 Reactor, RxJava 또는 기타가 지원됩니다.
+
 | Controller method return value | Description |
 |:--------|:--------|
 | @ResponseBody | 반환 값은 HttpMessageWriters를 통해 인코딩되고 응답에 기록됩니다. |
