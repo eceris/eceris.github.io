@@ -7,7 +7,7 @@ category:          Java
 author:            eceris
 ---
 
-### 1. Spring WebFlux
+# 1. Spring WebFlux
 ## 1.1. Introduction
 
 스프링 프레워크에서 오리지날 웹 프레임워크는 포함되었다. Spring Web MVC는 Servlet API와 Servlet 컨테이너 용으로 개발되었습니다. reactive 스택이며 웹 프레임 워크 인 Spring WebFlux는 나중에 버전 5.0에 추가되었습니다. 그것은 완전히 non-blocking이며 Reactive Streams back pressure를 지원하며 Netty, Undertow 및 Servlet 3.1+ 컨테이너와 같은 서버에서 실행됩니다.
@@ -15,7 +15,7 @@ author:            eceris
 두 웹 프레임 워크는 스프링 모듈의 소스 모듈 인 spring-webmvc와 spring-webflux의 이름을 미러링하고 Spring Framework에서 나란히 공존합니다. 각 모듈은 선택 사항입니다. 응용 프로그램은 하나 또는 다른 모듈을 사용할 수도 있고 어떤 경우에는 둘 다 사용할 수도 있습니다.(리액션 WebClient가있는 스프링 MVC 컨트롤러)
 
 
-# 1.1.1. Why a new web framework?
+### 1.1.1. Why a new web framework?
 이 대답의 일부는 비 블로킹 웹 스택이 소수의 스레드로 동시성을 처리하고 하드웨어 자원을 줄이면서 확장 할 필요가 있다는 것입니다. Servlet 3.1은 non-blocking I/O를위한 API를 제공합니다. 그러나 이를 사용하면 synchronous (필터, 서블릿) 또는 blocking (getParameter, getPart)하는 나머지 Servlet API에서 멀어집니다. 이는 새로운 공통 API가 모든 non-blocking runtime에 대한 기반 역할을 하도록하는 motivation이 되었습니다. 이는 async, non-blocking space에 잘 설정된 Netty와 같은 서버 때문에 중요합니다.
 
 
@@ -24,7 +24,7 @@ author:            eceris
 
 이것은 non-blocking 어플리케이션과 연결된 API style을 위한 좋은 일입니다. CompletableFuture 및 ReactiveX에 의해 대중화 되었고, asynchronous 로직에 대한 선언적 구성이 가능합니다. 프로그래밍 모델 레벨에서 Java 8은 Spring WebFlux가 annotation이 달린 컨트롤러와 함께 functional web endpoints를 제공할 수 있게 하였습니다.
 
-# 1.1.2. Reactive: what and why?
+### 1.1.2. Reactive: what and why?
 우리는 non-blocking과 functional이 무엇인지에 대해 잠시 알아봤습니다. 그러나 왜 reactive이며, 그것이 뭘 의미하는지 알아봅니다.
 
 reactive라는 단어는 변화에 reacting하는 프로그래밍 모델을 의미합니다. 예를 들면, I/O 이벤트에 반응하는 네트워크 구성 요소, 마우스 이벤트에 반응하는 UI 컨트롤러 등입니다. 이러한 의미로 non-blocking은 reactive 입니다. 왜냐하면 blocked 대신에 작업이 완료되거나 데이터가 사용 가능할 때 알림에 반응하는 방식에 있기 때문입니다.
@@ -36,7 +36,7 @@ Reactive Streams는 자바 9에 적용된 작은 스펙입니다.(그것은 비�
 > 일반적인 질문 : publisher가 속도를 늦출 수없는 경우 어떻게해야합니까?
 > Reactive Stream의 목적은 메커니즘과 경계를 설정하는 것입니다. publisher가 속도를 늦출 수없는 경우 buffer, drop 또는 fail 여부를 결정해야합니다.
 
-# 1.1.3. Reactive API
+### 1.1.3. Reactive API
 Reactive Stream은 상호 운용성에 중요한 역할을합니다. 라이브러리 및 인프라 구성 요소는 흥미로운 대상이지만 application API는 너무 low level이므로 유용하지는 않습니다. 어플리케이션이 필요한 것은 비동기 로직을 구성하는 functional api와 같은 high level의 풍부한 기능입니다. 자바8의 Stream API와 비슷하지만 컬렉션만을 위한 것이 아닙니다. 이것은 reactive 라이브러리가 수행하는 역할입니다.
 
 Reactor는 Spring WebFlux에서 선택한 reactive 라이브러리입니다. 이것은 ReactX와 연계 된 풍부한 연산자 집합을 통해 0..1 및 0..N의 데이터 시퀀스에서 작동하는 Mono 및 Flux API 유형을 제공합니다. Reactor는 Reactive Streams 라이브러리이므로 모든 연산자는 non-blocking을 지원합니다. Reactor는 서버 측 Java에 중점을두고 있으며, Spring과 긴밀히 협력하여 개발되었습니다.
@@ -44,7 +44,7 @@ Reactor는 Spring WebFlux에서 선택한 reactive 라이브러리입니다. 이
 WebFlux는 Reactor를 핵심 종속성으로 요구하지만 Reactive Streams를 통해 다른 대응 라이브러리와 상호 운용됩니다.
 일반적으로 WebFlux API는 일반 Publisher를 입력으로 허용하며, 내부적으로 Reactor 유형에 적용하고 사용하여 Flux 또는 Mono를 출력으로 반환합니다. 따라서 모든 Publisher를 입력으로 전달할 수 있으며 출력에 연산을 적용 할 수 있지만 다른 반응 라이브러리에서 사용하기 위해 출력을 조정해야합니다.
 
-# 1.1.4. Programming models
+### 1.1.4. Programming models
 Spring-Web 모듈에는 Spring WebFlux의 밑바탕이되는 reactive foundation이(HTTP 추상화, Reactive Streams 서버 어댑터, Reactive Streams 코덱 및 Servlet API와 비슷하지만 Non-Blokcing semantic을 가진 핵심 웹 API) 포함되어 있습니다.
 
 이 기반에서 Spring WebFlux는 두 가지 프로그래밍 모델 중에서 선택할 수 있습니다.
@@ -53,7 +53,7 @@ Spring-Web 모듈에는 Spring WebFlux의 밑바탕이되는 reactive foundation
   - Functional Endpoints : 람다 based, 가벼운 functional 프로그래밍 모델(어플리케이션이 처음부터 끝까지 요청의 처리를 담당하는 anntation 모델과의 가장 큰 차이점은 annotation을 통해 intent를 선언하고 콜백으로 다시 호출된다는 점 입니다.)
 
 
-# 1.1.5. Choosing a web framework
+### 1.1.5. Choosing a web framework
 Spring MVC 또는 WebFlux를 사용해야합니까? 몇 가지 다른 관점을 살펴 보겠습니다.
 
 잘 작동하는 Spring MVC 애플리케이션을 가지고 있다면, 굳이 변경할 필요가 없습니다. 명령형 프로그래밍은 코드를 작성, 이해 및 디버그하는 가장 쉬운 방법입니다. 역사적으로 대부분 blocking의 형태이므로 최대한 많은 라이브러리를 선택할 수 있습니다.
@@ -75,7 +75,7 @@ Java 8 lambda 또는 Kotlin과 함께 사용하기위한 가볍고 기능적인 
 찾아야 할 이점이 확실하지 않은 경우 Non-Blocking I/O가 작동하는 방식 (예 : 단일 스레드 Node.js의 동시성이 모순되지 않음) 및 그 효과에 대해 학습하면서 시작하십시오. 태그 라인은 "하드웨어가 적은 스케일"이지만, 그 효과는 느려지거나 예측할 수 없는 네트워크 I/O 없이는 보장되지 않습니다. 이 Netflix 블로그 게시물은 좋은 자료입니다.
 
 
-# 1.1.6. Choosing a server
+### 1.1.6. Choosing a server
 
 Spring WebFlux는 Netty, Undertow, Tomcat, Jetty 및 Servlet 3.1+ 컨테이너에서 지원됩니다. 각 서버는 공통 Reactive Streams API에 맞게 조정됩니다. 스프링 WebFlux 프로그래밍 모델은 공통 API를 기반으로합니다.
 
@@ -87,7 +87,7 @@ Spring Boot 2는 기본적으로 WebFlux와 함께 Netty를 사용합니다. Net
 스프링 부트의 서버 선택은 기본적으로 기본 제공 환경에 관한 것입니다. 응용 프로그램은 성능을 위해 최적화되고 완전히 차단되지 않고 Reactive Stream backpressure에 맞게 조정 된 다른 지원되는 서버를 선택할 수 있습니다. Spring Boot에서는 스위치를 만드는 것이 쉽습니다.
 
 
-# 1.1.7. Performance vs scale
+### 1.1.7. Performance vs scale
 성과에는 많은 특징과 의미가 있습니다. Reactive 및 Non-Blocking 형은 일반적으로 응용 프로그램을 더 빠르게 실행하지 않습니다. 경우에 따라 WebClient를 사용하여 원격 호출을 병렬로 실행할 수 있습니다. 전체적으로 Non-Blocking 방식을 수행하기 위해 더 많은 작업이 필요하며 이는 필요한 처리 시간을 약간 늘릴 수 있습니다.
 
 Reactive 및 Non-Blocking의 주요 이점은 작은 고정 된 스레드 수와 적은 메모리로 확장 할 수 있다는 것입니다. 따라서 응용 프로그램이 예측 가능한 방식으로 확장되므로 응용 프로그램이 로드 하에서보다 탄력적입니다. 그러나 이러한 이점을 관찰하려면 느리고 예측할 수없는 네트워크 I/O를 포함하여 대기 시간이 필요합니다. 이것이 바로 반응성 스택이 강점을 보여주기 시작하고 그 차이가 극적 일 수있는 부분입니다.
@@ -100,7 +100,7 @@ Spring-web 모듈은 반응이 적은 웹 애플리케이션을 구축하기 위
  - WebHandler API : 약간 더 높은 수준이지만 필터 체인 스타일 처리 기능을 갖춘 범용 서버 웹 API입니다.
 
 
-# 1.2.1. HttpHandler
+### 1.2.1. HttpHandler
 
 모든 HTTP 서버에는 HTTP 요청 처리를위한 API가 있습니다. HttpHandler는 요청 및 응답을 처리하는 한 가지 방법을 사용하는 간단한 약속입니다. 그것은 아주 minimal 하게 만들어 졌으며, 주요 목적은 서로 다른 서버에서 HTTP 요청 처리를 위한 공통 Reactive Stream 기반 API를 제공하는 것입니다.
 
@@ -170,7 +170,7 @@ server.start();
 
 > Servlet 3.1+ 컨테이너에 WAR로 배포하려면 HttpHandler를 ServletHttpHandlerAdapter로 감싸서 서블릿으로 등록하십시오.이것은 AbstractReactiveWebInitializer를 사용하여 자동화 할 수 있습니다.
 
-# 1.2.2. WebHandler API
+### 1.2.2. WebHandler API
 HttpHandler는 다른 서버에서 실행하기 위한 기본입니다. 이 기본에서 WebHandler API는 예외 핸들러 (WebExceptionHandler), 필터 (WebFilter) 및 대상 핸들러 (WebHandler)의 약간 더 높은 레벨 처리 체인을 제공합니다.
 
 모든 컴포넌트는 ServerWebExchange에서 동작합니다- 요청 속성, 세션 속성, 양식 데이터, 멀티 파트 데이터에 대한 액세스 등을 추가하는 HTTP 요청 및 응답을위한 컨테이너.
@@ -187,7 +187,7 @@ processing chain은 WebHttpHandlerBuilder와 함께 사용할 수 있습니다. 
 | "localeContextResolver" | LocaleContextResolver | 0..1 | Custom resolver for LocaleContext; default로 AcceptHeaderLocaleContextResolver |
 
 
-# 1.2.3. Codecs
+### 1.2.3. Codecs
 spring-web 모듈은 HTTP 요청 및 응답 본문을 리 액티브 스트림으로 인코딩 및 디코딩하기 위해 HttpMessageReader 및 HttpMessageWriter를 제공합니다. 제공 되는 모듈은 spring-core 모듈의 lower level을 기반으로 합니다.
  - DataBuffer : 바이트 버퍼 추상화(예 : Netty의 ByteBuf, java.nio.ByteBuffer, 데이터 버퍼와 코덱을 참조하십시오.)
  - Encoder : 오브젝트의 스트림을 데이터 버퍼의 스트림에 serialize 한다
@@ -217,7 +217,7 @@ HttpHandler handler = WebHttpHandlerBuilder.applicationContext(context);
 
 그 결과로 HttpHandler는 서버 어댑터와 함께 사용할 준비가 되었습니다.
 
-# 1.3.1. Special bean types
+### 1.3.1. Special bean types
 DispatcherHandler는 요청을 처리하고 적절한 응답을 렌더링하기 위해 special beans에 위임합니다. "special beans"이란 아래 표에 나열된 프레임 워크 약속 중 하나를 구현하는 Spring 관리 객체 인스턴스를 의미합니다. Spring WebFlux는 이러한 계약의 기본 구현을 제공하지만 커스터마이징, 확장 또는 대체 할 수도 있습니다.
 
 | Bean type | Explanation |
@@ -226,10 +226,10 @@ DispatcherHandler는 요청을 처리하고 적절한 응답을 렌더링하기 
 | HandlerAdapter | DispatcherHandler가 핸들러가 실제로 호출되는 방법에 관계없이 요청에 매핑 된 핸들러를 호출 할 수있게 도와줍니다. 예를 들어 annotated controllers를 호출하려면 Annotation을 해석해야합니다. HandlerAdapter의 주요 목적은 DispatcherHandler를 그러한 세부 사항으로부터 보호하는 것입니다.|
 | HandlerResultHandler | Handler호출의 결과를 처리하여 response를 마무리합니다. 내장 HandlerResultHandler 구현은 ResponseEntity 리턴 값을 지원하는 ResponseEntityResultHandler, @ResponseBody 메소드를 지원하는 ResponseBodyResultHandler, functional 엔드 포인트에서 리턴 된 ServerResponse를 지원하는 ServerResponseResultHandler 그리고 뷰 및 모델로 렌더링을 지원하는 ViewResolutionResultHandler입니다. |
 
-# 1.3.2. Framework Config
+### 1.3.2. Framework Config
 DispatcherHandler는 ApplicationContext에서 필요한 특수 bean을 감지합니다. 어플리케이션은 원하는 special beans을 선언 할 수 있습니다. 그러나 대부분의 애플리케이션은 더 높은 수준의 구성 API를 제공하는 WebFlux Java 구성에서 더 나은 출발점을 찾아 필요한 Bean 선언을 만듭니다.
 
-# 1.3.3. Processing
+### 1.3.3. Processing
 DispatcherHandler는 다음과 같이 요청을 처리합니다.
  - 각 HandlerMapping은 일치하는 핸들러를 찾고 첫 번째 일치가 사용됩니다.
  - 핸들러가 발견되면 HandlerResult로 실행 된 리턴 값을 표시하는 적절한 HandlerAdapter를 통해 핸들러가 실행됩니다.
@@ -249,7 +249,7 @@ public class HelloController {
 ```
 이 예제에서 메서드는 응답 본문에 쓸 String을 반환합니다.
 
-# 1.4.1. @Controller
+### 1.4.1. @Controller
 표준 스프링 빈 정의를 사용하여 컨트롤러 빈을 정의 할 수 있습니다. @Controller 스테레오 타입은 클래스 패스에서 @Component 클래스를 감지하고 bean 정의를 자동 등록하는 Spring의 일반적인 지원과 일치하는 자동 Detection 을 허용합니다. 또한 annotation이 달린 클래스의 스테레오 타입 역할을 하여 웹 컴포넌트 역할을 나타냅니다.
 
 이러한 @Controller 빈을 자동 Detection 하려면 Java 구성에 구성 요소 검색을 추가 할 수 있습니다.
@@ -264,7 +264,7 @@ public class WebConfig {
 
 @RestController는 @Controller와 @ResponseBody가 합쳐진 Annotation으로, 모든 메소드가 @ResponseBody Annotation을 type-level에서 상속하므로 response body (vs model-and-view rendering)에 기록합니다.
 
-# 1.4.2. Request Mapping
+### 1.4.2. Request Mapping
 @RequestMapping Annotation은 요청을 매핑하는 데 사용됩니다. URL, HTTP 메소드, 요청 매개 변수, 헤더 및 미디어 유형에 따라 일치시킬 다양한 속성이 있습니다. 클래스 레벨에서 공유 맵핑을 표현하거나 메소드 레벨에서 특정 엔드 포인트 맵핑으로 범위를 좁히기 위해 사용할 수 있습니다.
 
 @RequestMapping의 HTTP 메소드 관련 단축키 변형도 있습니다.
@@ -406,7 +406,7 @@ HTTP 메소드 선언이없는 @RequestMapping의 경우 허용된 헤더가 "GE
 @RequestMapping 메서드는 HTTP HEAD 및 HTTP OPTIONS에 명시 적으로 매핑 될 수 있지만 일반적인 경우에는 필요하지 않습니다.
 
 
-# 1.4.3. Handler methods
+### 1.4.3. Handler methods
 @RequestMapping handler 메서드는 유연한 서명을 가지며 지원되는 컨트롤러 메서드 인수 및 반환 값 범위에서 선택할 수 있습니다.
 
 아래 표는 지원되는 컨트롤러 메소드 인수를 보여줍니다.
@@ -462,7 +462,7 @@ Java 8+: java.time.ZoneId | request와 관련된 timezone, LocaleContextResolver
 ## 1.5. Functional Endpoints
 Spring WebFlux는 기능을 사용하여 요청을 라우팅하고 처리하고 약속이 변경되지 않도록 설계된 경량의 기능 프로그래밍 모델을 제공합니다. Annotation 기반 프로그래밍 모델의 대안이지만 동일한 Reactive Spring Web 기반에서 실행됩니다.
 
-# 1.5.1. HandlerFunction
+### 1.5.1. HandlerFunction
 들어오는 HTTP 요청은 본질적으로 ServerRequest를 사용하고 Mono <ServerResponse>를 반환하는 함수 인 HandlerFunction에 의해 처리됩니다. 핸들러 함수에 대응되는 Annotation은 @RequestMapping 메소드입니다. 
 
 ServerRequest 및 ServerResponse는, reactive Stream의 Non-Blocking backpressure으로, 기본이되는 HTTP 메세지의 친숙한 액세스를 제공하는 불변의 JDK-8 인터페이스입니다. 요청은 Reactor Flux  또는 Mono  유형으로 body 를 노출합니다. 응답은 본문으로 모든 Reactive Stream Publisher를 허용합니다 (Reactive Libraries 참고).
@@ -540,7 +540,7 @@ public class PersonHandler {
   - getPerson 함수는 경로 변수 id를 통해 식별되는 단일 사용자를 리턴하는 핸들러 함수입니다. 저장소를 통해 Person을 검색하고 JSON 응답이 발견되면 작성합니다. 발견되지 않으면 switchIfEmpty(Mono <T>)를 사용하여 404 Not Found 응답을 반환합니다.
 
 
-# 1.5.2. RouterFunction
+### 1.5.2. RouterFunction
 
 들어오는 요청은 ServerRequest를 사용하고 Mono <HandlerFunction>를 반환하는 함수 인 RouterFunction을 사용하여 handler 함수로 라우팅됩니다. 요청이 특정 경로와 일치하면 핸들러 함수가 반환됩니다. 그렇지 않으면 빈 Mono를 반환합니다. RouterFunction은 @Controller 클래스의 @RequestMapping Annotation과 비슷한 목적을 가지고 있습니다.
 
@@ -569,12 +569,12 @@ RouterFunction<ServerResponse> personRoute =
 
 라우터 기능 외에도 RequestPredicate.and(RequestPredicate) 또는 RequestPredicate.or(RequestPredicate)를 호출하여 요청 Predicate를 구성할 수 있습니다. 두 Predicate가가 일치하면 결과 Predicate가 and 에 대해 예상대로 작동합니다 or는 Predicate가 하나라도 일치하면 일치합니다. RequestPredicates에있는 대부분의 Predicate는 합성입니다. 예를 들어, RequestPredicates.GET(String)은 RequestPredicates.method(HttpMethod)와 RequestPredicates.path(String)의 조합입니다.
 
-# 1.5.3. Running a server
+### 1.5.3. Running a server
 HTTP 서버에서 라우터 기능을 어떻게 실행합니까? 간단한 옵션은 RouterFunctions.toHttpHandler(RouterFunction)를 통해 라우터 함수를 HttpHandler로 변환하는 것입니다. 그런 다음 HttpHandler를 여러 서버 어댑터와 함께 사용할 수 있습니다.
 
 DispatcherHandler 설정을 Annotation 컨트롤러와 나란히 실행할 수도 있습니다. 가장 쉬운 방법은 라우터 및 handler 기능을 사용하여 요청을 처리하는 데 필요한 구성을 만드는 WebFlux Java Config를 사용하는 것입니다.
 
-# 1.5.4. HandlerFilterFunction
+### 1.5.4. HandlerFilterFunction
 라우터 함수에 의해 매핑 된 경로는 RouterFunction.filter(HandlerFilterFunction)를 호출하여 필터링 할 수 있습니다. HandlerFilterFunction은 본질적으로 ServerRequest 및 HandlerFunction을 사용하는 함수이며 ServerResponse를 반환합니다. 핸들러 함수 매개 변수는 체인의 다음 요소를 나타내며 일반적으로 라우팅되는 HandlerFunction이지만 여러 필터가 적용될 경우 다른 FilterFunction이 될 수도 있습니다. Annotation을 사용하면 @ControllerAdvice 및 / 또는 ServletFilter를 사용하여 유사한 기능을 구현할 수 있습니다. 우리의 경로에 간단한 보안 필터를 추가해 봅시다. 특정 경로가 허용되는지 여부를 결정할 수있는 SecurityManager가 있다고 가정합니다.
 ```java
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
@@ -603,7 +603,7 @@ WebFlux Java 구성은 대부분의 응용 프로그램에 적합한 기본 구�
 Java 구성에 의해 만들어진 기본 bean을 이해할 필요는 없지만 WebFluxConfigurationSupport에서 쉽게 볼 수 있습니다. 자세한 내용은 특수 bean 유형을 참조하십시오.
 
 
-# 1.6.1. Enable WebFlux config
+### 1.6.1. Enable WebFlux config
 Java 구성에서 @EnableWebFlux 주석을 사용하십시오.
 ```java
 @Configuration
@@ -615,7 +615,7 @@ public class WebConfig {
 위의 코드는 JSON, XML 등의 클래스 패스에서 사용할 수있는 의존성에 적응하는 여러 Spring WebFlux 인프라 bean을 등록합니다.
 
 
-# 1.6.2. WebFlux config API
+### 1.6.2. WebFlux config API
 Java 구성에서 WebFluxConfigurer 인터페이스를 구현하십시오.
 ```java
 @Configuration
@@ -627,7 +627,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-# 1.6.3. Conversion, formatting
+### 1.6.3. Conversion, formatting
 @NumberFormat 및 @DateTimeFormat 주석에 대한 지원을 포함하여 기본적으로 Number 및 Date 유형의 포맷터가 설치됩니다. Joda Time이 클래스 경로에 있는 경우 Joda Time 형식 라이브러리에 대한 완벽한 지원도 설치됩니다.
 
 사용자 정의 converters 및 formatters 를 등록하려면 다음을 수행하십시오.
@@ -646,7 +646,7 @@ public class WebConfig implements WebFluxConfigurer {
 
 > FormatterRegistrars의 사용시기에 대한 자세한 내용은 FormatterRegistrar SPI 및 FormattingConversionServiceFactoryBean을 참조하십시오.
 
-# 1.6.4. Validation
+### 1.6.4. Validation
 Bean 유효성 검사(ex : Hibernate Validator)가 클래스 경로에 있는 경우 기본적으로 LocalValidatorFactoryBean은 @Valid와 함께 사용하기위한 전역 Validator로 등록되고 @Controller 메소드 인수에서 유효성 검사를받습니다.
 
 Java 구성에서 전역 Validator instance를 커스터마이징 할 수 있습니다.
@@ -678,7 +678,7 @@ public class MyController {
 
 > 어딘가에 LocalValidatorFactoryBean을 삽입해야한다면, MVC 설정에서 선언 된 것과 충돌을 피하기 위해 빈을 만들어 @Primary로 표시하십시오.
 
-# 1.6.5. Content type resolvers
+### 1.6.5. Content type resolvers
 Spring WebFlux가 요청에서 @Controller에 대해 요청 된 미디어 유형을 결정하는 방법을 구성 할 수 있습니다. 기본적으로 "Accept"헤더만 선택되어 있지만 query parameter 기반 전략을 사용하도록 설정할 수도 있습니다.
 ```java
 @Configuration
@@ -692,7 +692,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-# 1.6.6. HTTP message codecs
+### 1.6.6. HTTP message codecs
 요청 및 응답 본문을 읽고 쓰는 방법을 사용자 정의하려면 다음을 수행하십시오.
 ```java
 @Configuration
@@ -718,7 +718,7 @@ Jackson JSON 및 XML의 경우 Jackson의 기본 속성을 다음과 같이 사�
  - jackson-datatype-jsr310: Java 8 Date & Time API 유형 지원.
  - jackson-datatype-jdk8: 선택 사항과 같은 다른 Java 8 유형 지원.
 
-# 1.6.7. View resolvers
+### 1.6.7. View resolvers
 View resolution 를 구성하려면 다음과 같이하십시오. 
 ```java
 @Configuration
@@ -749,7 +749,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-# 1.6.8. Static resources
+### 1.6.8. Static resources
 이 옵션은  Resource-based locations에서 static resources를 제공하는 편리한 방법을 제공합니다.
 
 아래 예제에서 "/resources"로 시작하는 요청이 있으면 클래스 경로의 "/static"을 기준으로 정적 리소스를 찾고 제공하는 데 상대 경로가 사용됩니다. 브라우저 캐시를 최대로 사용하고 브라우저에서 HTTP 요청을 줄이기 위해 리소스는 1 년 후 만료됩니다. 브라우저 캐시를 최대로 사용하고 브라우저에서 HTTP 요청을 줄이기 위해 리소스는 1 년 후 만료됩니다.
@@ -795,7 +795,7 @@ Spring MVC와는 달리 현재 WebFlux의 정적 리소스 URL을 투명하게 �
 WebJars는 WebJarsResourceResolver를 통해 지원되며 "org.webjars : webjars-locator"가 클래스 경로에 있을 때 자동으로 등록됩니다. resolver는 jar 버전을 포함하도록 URL을 다시 쓸 수 있으며 버전이 없는 수신 URL에도 일치시킬 수 있습니다 (예 : "/jquery/jquery.min.js"를 "/jquery/1.2.0/jquery.min.js"로 변경하십시오.
 
 
-# 1.6.9. Path Matching
+### 1.6.9. Path Matching
 Spring WebFlux는 경로 패턴, 즉 PathPattern과 들어오는 RequestPath의 구문 분석 된 표현을 사용합니다.
 
 Spring WebFlux는 접미사 패턴 매칭도 지원하지 않으므로 경로 매칭과 관련하여 커스터마이징 할 수있는 두 가지 사소한 옵션만 있습니다. (trailing slashes(true by default)와 case-sensitive(false))
@@ -814,7 +814,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-# 1.6.10. Advanced config mode
+### 1.6.10. Advanced config mode
 @EnableWebFlux는 (1) WebFlux 응용 프로그램에 대한 기본 Spring 구성을 제공하고 (2) WebFluxConfigurer를 감지하고 위임하여 해당 구성을 사용자 지정하는 DelegatingWebFluxConfiguration을 가져옵니다.
 
 고급 모드의 경우 @EnableWebFlux를 제거하고 WebFluxConfigurer를 구현하는 대신 DelegatingWebFluxConfiguration에서 직접 확장합니다.
@@ -832,7 +832,7 @@ WebConfig에서 기존 메소드를 유지할 수 있지만 이제는 기본 클
 ## 1.7. CORS
 SKIP
 
-### 2. WebClient
+# 2. WebClient
 spring-webflux 모듈에는 Reactive Streams backpressure가 있는 HTTP 요청에 대한 non-blocking, reactive 클라이언트가 포함되어 있습니다. 이것들은 HTTP 코덱 및 기타 인프라를 서버 기능 웹 프레임 워크와 공유합니다.
 
 WebClient는 HTTP 클라이언트 라이브러리보다 높은 수준의 API를 제공합니다. 기본적으로 Reactor Netty를 사용하지만 다른 ClientHttpConnector를 사용하여 플러그 할 수 있습니다. WebClient API는 출력용 Reactor Flux 또는 Mono를 반환하고 Reactive Stream Publisher를 입력으로 허용합니다 (Reactive Libraries 참고).
@@ -923,7 +923,7 @@ retrieve()와는 달리, exchange()에는 4xx 및 5xx 응답에 대한 자동 �
             .bodyToMono(Void.class);
 ```
 
-# 2.3.1. Form data
+### 2.3.1. Form data
 Form 데이터를 보내려면 body로 MultiValueMap <String, String>을 제공해야합니다. 내용은 FormHttpMessageWriter에 의해 자동으로 "application/x-www-form-urlencoded"로 설정됩니다.
 ```java
     MultiValueMap<String, String> formData = ... ;
@@ -947,7 +947,7 @@ BodyInserters를 통해 양식 데이터를 인라인으로 제공 할 수도 �
 
 ```
 
-# 2.3.2. Multipart data
+### 2.3.2. Multipart data
 multipart 데이터를 보내려면 MultiValueMap <String,?>을 제공해야 합니다. 여기서 value는 part body를 나타내는 Object 또는 part body와 header를 나타내는 HttpEntity입니다. MultipartBodyBuilder를 사용하여 part를 빌드 할 수 있습니다.
 ```java
     MultipartBodyBuilder builder = new MultipartBodyBuilder();
@@ -1043,9 +1043,9 @@ ExchangeFilterFunctions는 기본 인증을위한 필터를 제공합니다.
 ```
 
 
-### 3. WebSockets
-### 4. Testing
-### 5. Reactive Libraries
+# 3. WebSockets
+# 4. Testing
+# 5. Reactive Libraries
 
 
 https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-config-enable
