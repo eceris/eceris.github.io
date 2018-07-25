@@ -326,8 +326,10 @@ publishOn(); 라는 operator에 scheduler를 인자로 넘겨서 구현.
 
 ### [reactor.core.publisher.flux.subscribeOn()](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#subscribeOn-reactor.core.scheduler.Scheduler-)
 
-![Image of SubscribeOn]
-(https://raw.githubusercontent.com/reactor/reactor-core/v3.1.3.RELEASE/src/docs/marble/subscribeon.png)
+<figure>
+<img src="{{ site.github.url }}/media/img/subscribeon.png" />
+<figcaption>Image of SubscribeOn</figcaption>
+</figure>
 
 Typically used for slow publisher(e.g., blocking IO), fast consumers scenarios.
 publisher가 느린 경우, publisher를 별개의 스레드에서 구현(subscribeOn을 별개의 스레드에서...)
@@ -338,8 +340,10 @@ publisher가 느린 경우, publisher를 별개의 스레드에서 구현(subscr
 
 ### [reactor.core.publisher.flux.publishOn()](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#publishOn-reactor.core.scheduler.Scheduler-)
 
-![Image of SubscribeOn]
-(https://raw.githubusercontent.com/reactor/reactor-core/v3.1.3.RELEASE/src/docs/marble/publishon.png)
+<figure>
+<img src="{{ site.github.url }}/media/img/publishon.png" />
+<figcaption>Image of publishOn</figcaption>
+</figure>
 
 Typically used for fast publisher, slow consumers scenarios.
 publisher는 빠르나 subsciber가 느린 경우에 subscriber를 별개의 스레드에서 구현(onNext...둥등의 메소드를 별개의 스레드에서..)
@@ -606,8 +610,10 @@ thenCompose() : Stream의 flatMap
 thenApply() : Stream의 Map 
 
 # WebFlux
-![Image of WebFlux stack]
-(https://docs.spring.io/spring/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/html/images/webflux-overview.png)
+<figure>
+<img src="{{ site.github.url }}/media/img/webflux-overview.png" />
+<figcaption>Image of WebFlux stack</figcaption>
+</figure>
 
 기존에 작성했던 코드들을 스프링 5에 맞춰서 진행한다.
 
@@ -649,8 +655,10 @@ Mono 타입에서 다른 스레드를 태우고 싶은 경우 scheduler를 사�
 # Mono
 [Mono](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html)
 
-![Image of Mono]
-(https://raw.githubusercontent.com/reactor/reactor-core/v3.1.3.RELEASE/src/docs/marble/mono.png)
+<figure>
+<img src="{{ site.github.url }}/media/img/mono.png" />
+<figcaption>Image of Mono</figcaption>
+</figure>
 
 ```java
 @GetMapping("/person/{id}")
@@ -674,9 +682,11 @@ Mono.block() 하는 순간 Mono에 들어있는 value를 얻을수는 있지만 
 # Flux
 [Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html)
 
-![Image of Flux]
-(https://raw.githubusercontent.com/reactor/reactor-core/v3.1.3.RELEASE/src/docs/marble/flux.png)
-[![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/reactor/reactor-core/v3.1.3.RELEASE/src/docs/marble/flux.png)](https://raw.githubusercontent.com/reactor/reactor-core/v3.1.3.RELEASE/src/docs/marble/flux.png)
+<figure>
+<img src="{{ site.github.url }}/media/img/flux.png" />
+<figcaption>Image of Flux</figcaption>
+</figure>
+
 0..N 의 데이터를 다루는 Reactive Stream 구현체(Reactive Streams Publisher contract를 확장)
 
 ```java
